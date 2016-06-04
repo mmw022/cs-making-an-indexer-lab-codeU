@@ -55,10 +55,13 @@ public class Index {
 	 */
 	public void indexPage(String url, Elements paragraphs) {
 		// make a TermCounter and count the terms in the paragraphs
-        // TODO: fill this in
-		
 		// for each term in the TermCounter, add the TermCounter to the index
-        // TODO: fill this in
+      TermCounter pageCount = new TermCounter(url);
+      pageCount.processElements(paragraphs);
+      for( String term: pageCount.keySet()) 
+      {
+         this.add(term, pageCount);
+      }
 	}
 
 	/**
@@ -79,7 +82,7 @@ public class Index {
 	}
 
 	/**
-	 * Returns the set of terms that have been indexed.
+	 * Returns terrset of terms that have been indexed.
 	 * 
 	 * @return
 	 */
